@@ -4,6 +4,7 @@ import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -14,21 +15,25 @@ public class StrategyCreateTriangle implements IDrawStrategy {
     private PaintCanvasBase paintCanvas;
     private IApplicationState appState;
     private ShapeShadingType shadeType;
+    private IShapeProperties sp;
 
-
-    public StrategyCreateTriangle(IApplicationState appState, PaintCanvasBase paintCanvas){
+    public StrategyCreateTriangle(PaintCanvasBase paintCanvas, IShapeProperties sp){
         this.paintCanvas = paintCanvas;
-        this.appState = appState;
+        this.sp = sp;
     }
 
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
+
         int[] X = {x, x + width, x};
         int[] Y = {y, y + height, y+height};
-        primaryColor = appState.getActivePrimaryColor();
-        secondaryColor = appState.getActiveSecondaryColor();
-        shadeType = appState.getActiveShapeShadingType();
+
+        primaryColor = sp.getPrimaryColor();
+        secondaryColor = sp.getSecondaryColor();
+        shadeType = sp.getShadeType();
+
         Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
+
         switch (shadeType.toString()) {
             case "FILLED_IN":
                 graphics2d.setColor(primaryColor.getColor());

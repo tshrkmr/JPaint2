@@ -4,6 +4,7 @@ import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -12,21 +13,23 @@ public class StrategyCreateRectangle implements IDrawStrategy {
 
     private ShapeColor primaryColor, secondaryColor;
     private PaintCanvasBase paintCanvas;
-    private IApplicationState appState;
     private ShapeShadingType shadeType;
+    private IShapeProperties sp;
 
-
-    public StrategyCreateRectangle(IApplicationState appState, PaintCanvasBase paintCanvas){
+    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, IShapeProperties sp){
         this.paintCanvas = paintCanvas;
-        this.appState = appState;
+        this.sp = sp;
     }
 
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
-        primaryColor = appState.getActivePrimaryColor();
-        secondaryColor = appState.getActiveSecondaryColor();
-        shadeType = appState.getActiveShapeShadingType();
+
+        primaryColor = sp.getPrimaryColor();
+        secondaryColor = sp.getSecondaryColor();
+        shadeType = sp.getShadeType();
+
         Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
+
         switch (shadeType.toString()) {
             case "FILLED_IN":
                 graphics2d.setColor(primaryColor.getColor());
