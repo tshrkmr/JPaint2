@@ -5,36 +5,31 @@ import model.ShapeShadingType;
 import model.ShapeType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IShapeProperties;
-import view.interfaces.PaintCanvasBase;
-import java.awt.Graphics2D;
 import java.awt.*;
 
 public class ShapeProperties implements IShapeProperties {
 
     int startX, startY, width, height;
-    private Graphics2D graphics2d;
     private ShapeType shapeType;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
-    private PaintCanvasBase paintCanvas;
     public IApplicationState appState;
     private Stroke stroke;
     private Point startPoint, endPoint;
+    private ShapeList shapeList;
 
-    public ShapeProperties(IApplicationState appState, PaintCanvasBase paintCanvas){
+
+    public ShapeProperties(IApplicationState appState, ShapeList shapeList){
         this.appState = appState;
-        //this.graphics2d = graphics2d;
-        this.paintCanvas = paintCanvas;
+        this.shapeList = shapeList;
     }
 
 
     public void setProperties() {
         this.shapeType = appState.getActiveShapeType();
-        //System.out.println(appState.getActiveShapeType()+ "Hello1");
         this.shadeType = appState.getActiveShapeShadingType();
         this.primaryColor = appState.getActivePrimaryColor();
         this.secondaryColor = appState.getActiveSecondaryColor();
-        //System.out.println(this.secondaryColor+ "Hello1");
         //stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
         stroke = new BasicStroke(4);
     }

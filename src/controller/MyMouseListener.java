@@ -16,12 +16,13 @@ public class MyMouseListener extends MouseAdapter {
     private ICommand command;
     private IApplicationState appState;
     private StartAndEndPointMode startAndEndPointMode;
-    IShapeProperties sp;
+    private IShapeProperties sp;
+    private ShapeList shapeList;
 
-
-    public MyMouseListener(PaintCanvasBase paintCanvas, IApplicationState appState) {
+    public MyMouseListener(PaintCanvasBase paintCanvas, IApplicationState appState, ShapeList shapeList) {
         this.paintCanvas = paintCanvas;
         this.appState = appState;
+        this.shapeList = shapeList;
     }
 
     @Override
@@ -33,16 +34,16 @@ public class MyMouseListener extends MouseAdapter {
     public void mouseReleased(MouseEvent e){
 
         endPoint = new Point(e.getX(), e.getY());
-        sp = new ShapeProperties(appState, paintCanvas);
+        sp = new ShapeProperties(appState, shapeList);
         sp.setProperties();
         startAndEndPointMode = appState.getActiveStartAndEndPointMode();
 
         switch (startAndEndPointMode.toString()) {
             case "DRAW":
-                command = new CommandCreateShape(startPoint, endPoint, paintCanvas, sp);
+                command = new CommandCreateShape(startPoint, endPoint, paintCanvas, sp, shapeList);
                 break;
             case "SELECT":
-                command = new CommandSelectShape(startPoint, endPoint, paintCanvas, appState);
+                command = new CommandSelectShape(startPoint, endPoint, paintCanvas, appState, shapeList);
                 break;
             case "MOVE":
                 command = new CommandMoveShape();

@@ -5,8 +5,6 @@ import model.interfaces.ICommand;
 import model.interfaces.IDrawStrategy;
 import view.interfaces.PaintCanvasBase;
 
-import java.awt.*;
-
 public class CommandSelectShape implements ICommand {
 
     private Point startPoint, endPoint;
@@ -14,12 +12,14 @@ public class CommandSelectShape implements ICommand {
     private IDrawStrategy drawStrategy;
     private IApplicationState appState;
     private int startX, startY, width, height;
+    private ShapeList shapeList;
 
-    public CommandSelectShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, IApplicationState appState){
+    public CommandSelectShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, IApplicationState appState, ShapeList shapeList){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.paintCanvas = paintCanvas;
         this.appState = appState;
+        this.shapeList = shapeList;
     }
 
     @Override

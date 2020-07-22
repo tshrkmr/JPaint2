@@ -2,7 +2,6 @@ package model.persistence;
 
 import model.ShapeColor;
 import model.ShapeShadingType;
-import model.interfaces.IApplicationState;
 import model.interfaces.IDrawStrategy;
 import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
