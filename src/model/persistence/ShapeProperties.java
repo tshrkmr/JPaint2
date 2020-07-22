@@ -19,7 +19,9 @@ public class ShapeProperties implements IShapeProperties {
     private ShapeList shapeList;
 
 
-    public ShapeProperties(IApplicationState appState, ShapeList shapeList){
+    public ShapeProperties(Point startPoint, Point endPoint,IApplicationState appState, ShapeList shapeList){
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
         this.appState = appState;
         this.shapeList = shapeList;
     }
@@ -32,15 +34,18 @@ public class ShapeProperties implements IShapeProperties {
         this.secondaryColor = appState.getActiveSecondaryColor();
         //stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
         stroke = new BasicStroke(4);
+
+        startX = Math.min(startPoint.getX(), endPoint.getX());
+        startY = Math.min(startPoint.getY(), endPoint.getY());
+        width = Math.abs(startPoint.getX() - endPoint.getX());
+        height = Math.abs(startPoint.getY() - endPoint.getY());
+
+        setStartX(startX);
+        setStartY(startY);
+        setWidth(width);
+        setHeight(height);
     }
 
-    public void setStartPoint(Point a){
-        this.startPoint = a;
-    }
-
-    public void setEndPoint(Point b){
-        this.endPoint = b;
-    }
     public void setStartX(int x){
         this.startX = x;
     }

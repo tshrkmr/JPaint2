@@ -16,6 +16,7 @@ public class StrategyCreateTriangle implements IDrawStrategy {
     private IApplicationState appState;
     private ShapeShadingType shadeType;
     private IShapeProperties sp;
+    private Graphics2D graphics2d;
 
     public StrategyCreateTriangle(PaintCanvasBase paintCanvas, IShapeProperties sp){
         this.paintCanvas = paintCanvas;
@@ -32,7 +33,7 @@ public class StrategyCreateTriangle implements IDrawStrategy {
         secondaryColor = sp.getSecondaryColor();
         shadeType = sp.getShadeType();
 
-        Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
+        graphics2d = this.paintCanvas.getGraphics2D();
 
         switch (shadeType.toString()) {
             case "FILLED_IN":

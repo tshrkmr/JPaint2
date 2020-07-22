@@ -4,7 +4,6 @@ import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
 import model.persistence.ApplicationState;
-import model.persistence.Point;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -15,8 +14,6 @@ public interface IShapeProperties {
     int getStartY();
     int getWidth();
     int getHeight();
-    void setStartPoint(Point a);
-    void setEndPoint(Point b);
     void setStartX(int x);
     void setStartY(int y);
     void setWidth(int width);

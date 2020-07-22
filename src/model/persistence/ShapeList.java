@@ -22,7 +22,11 @@ public class ShapeList {
         this.selectShapeList.add(ids1);
     }
 
-    public ArrayList<IDrawStrategy> getDrawShapeList() {
+    public ArrayList<IDrawStrategy> getDrawShapeList(){
+        return drawShapeList;
+    }
+
+    public ArrayList<IDrawStrategy> getSelectedShapeList(){
         return drawShapeList;
     }
 

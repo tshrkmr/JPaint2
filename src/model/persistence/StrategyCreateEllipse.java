@@ -16,6 +16,7 @@ public class StrategyCreateEllipse implements IDrawStrategy {
     private IApplicationState appState;
     private ShapeShadingType shadeType;
     private IShapeProperties sp;
+    private Graphics2D graphics2d;
 
     public StrategyCreateEllipse(PaintCanvasBase paintCanvas, IShapeProperties sp){
         this.paintCanvas = paintCanvas;
@@ -29,7 +30,7 @@ public class StrategyCreateEllipse implements IDrawStrategy {
         secondaryColor = sp.getSecondaryColor();
         shadeType = sp.getShadeType();
 
-        Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
+        graphics2d = this.paintCanvas.getGraphics2D();
 
         switch (shadeType.toString()) {
             case "FILLED_IN":
