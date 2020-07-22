@@ -16,8 +16,9 @@ public class MyMouseListener extends MouseAdapter {
     private ICommand command;
     private IApplicationState appState;
     private StartAndEndPointMode startAndEndPointMode;
-    private IShapeProperties sp;
+    private ShapeProperties sp;
     private ShapeList shapeList;
+    private ShapeProperties sp1;
 
     public MyMouseListener(PaintCanvasBase paintCanvas, IApplicationState appState, ShapeList shapeList) {
         this.paintCanvas = paintCanvas;
@@ -36,6 +37,7 @@ public class MyMouseListener extends MouseAdapter {
         endPoint = new Point(e.getX(), e.getY());
         sp = new ShapeProperties(startPoint, endPoint, appState, shapeList);
         sp.setProperties();
+
         startAndEndPointMode = appState.getActiveStartAndEndPointMode();
 
         switch (startAndEndPointMode.toString()) {
@@ -43,7 +45,7 @@ public class MyMouseListener extends MouseAdapter {
                 command = new CommandCreateShape(startPoint, endPoint, paintCanvas, sp, shapeList);
                 break;
             case "SELECT":
-                command = new CommandSelectShape(startPoint, endPoint, sp, shapeList, paintCanvas);
+                command = new CommandSelectShape(startPoint, endPoint, sp1, shapeList);
                 break;
             case "MOVE":
                 command = new CommandMoveShape();

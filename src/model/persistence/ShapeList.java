@@ -6,27 +6,27 @@ import model.interfaces.IShapeProperties;
 import java.util.ArrayList;
 
 public class ShapeList {
-    ArrayList<IDrawStrategy> drawShapeList;
-    ArrayList<IDrawStrategy> selectShapeList;
+    ArrayList<ShapeProperties> drawShapeList;
+    ArrayList<ShapeProperties> selectShapeList;
 
     public ShapeList(){
        drawShapeList = new ArrayList<>();
        selectShapeList = new ArrayList<>();
     }
 
-    public void addDrawShape(IDrawStrategy ids){
+    public void addDrawShape(ShapeProperties ids){
         this.drawShapeList.add(ids);
     }
 
-    public void addSelectShape(IDrawStrategy ids1){
+    public void addSelectShape(ShapeProperties ids1){
         this.selectShapeList.add(ids1);
     }
 
-    public ArrayList<IDrawStrategy> getDrawShapeList(){
+    public ArrayList<ShapeProperties> getDrawShapeList(){
         return drawShapeList;
     }
 
-    public ArrayList<IDrawStrategy> getSelectedShapeList(){
+    public ArrayList<ShapeProperties> getSelectedShapeList(){
         return drawShapeList;
     }
 

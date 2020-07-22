@@ -2,7 +2,6 @@ package model.persistence;
 
 import model.ShapeColor;
 import model.ShapeShadingType;
-import model.interfaces.IApplicationState;
 import model.interfaces.IDrawStrategy;
 import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
@@ -13,12 +12,11 @@ public class StrategyCreateTriangle implements IDrawStrategy {
 
     private ShapeColor primaryColor, secondaryColor;
     private PaintCanvasBase paintCanvas;
-    private IApplicationState appState;
     private ShapeShadingType shadeType;
-    private IShapeProperties sp;
+    private ShapeProperties sp;
     private Graphics2D graphics2d;
 
-    public StrategyCreateTriangle(PaintCanvasBase paintCanvas, IShapeProperties sp){
+    public StrategyCreateTriangle(PaintCanvasBase paintCanvas, ShapeProperties sp){
         this.paintCanvas = paintCanvas;
         this.sp = sp;
     }

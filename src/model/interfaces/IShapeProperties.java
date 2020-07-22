@@ -3,8 +3,6 @@ package model.interfaces;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
-import model.persistence.ApplicationState;
-import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
 
@@ -23,4 +21,6 @@ public interface IShapeProperties {
     ShapeColor getSecondaryColor();
     ShapeColor getPrimaryColor();
     Stroke getStroke();
+    //boolean isOverlapping(int startX, int startY, int width, int height);
+    //boolean isOverlapping(int x, int y, int width, int height);
 }

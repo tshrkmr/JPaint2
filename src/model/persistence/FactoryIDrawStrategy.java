@@ -9,7 +9,7 @@ public class FactoryIDrawStrategy {
 
     private ShapeType shapeType;
 
-    public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, IShapeProperties sp){
+    public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, ShapeProperties sp){
 
         IDrawStrategy drawStrategy = null;
 

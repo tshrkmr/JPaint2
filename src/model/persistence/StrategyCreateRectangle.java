@@ -13,10 +13,10 @@ public class StrategyCreateRectangle implements IDrawStrategy {
     private ShapeColor primaryColor, secondaryColor;
     private PaintCanvasBase paintCanvas;
     private ShapeShadingType shadeType;
-    private IShapeProperties sp;
+    private ShapeProperties sp;
     private Graphics2D graphics2d;
 
-    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, IShapeProperties sp){
+    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, ShapeProperties sp){
         this.paintCanvas = paintCanvas;
         this.sp = sp;
     }

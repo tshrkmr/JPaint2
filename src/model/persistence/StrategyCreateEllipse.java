@@ -15,10 +15,10 @@ public class StrategyCreateEllipse implements IDrawStrategy {
     private PaintCanvasBase paintCanvas;
     private IApplicationState appState;
     private ShapeShadingType shadeType;
-    private IShapeProperties sp;
+    private ShapeProperties sp;
     private Graphics2D graphics2d;
 
-    public StrategyCreateEllipse(PaintCanvasBase paintCanvas, IShapeProperties sp){
+    public StrategyCreateEllipse(PaintCanvasBase paintCanvas, ShapeProperties sp){
         this.paintCanvas = paintCanvas;
         this.sp = sp;
     }
@@ -26,6 +26,7 @@ public class StrategyCreateEllipse implements IDrawStrategy {
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
 
+        System.out.println(x+ " "+ y+ " "+ width+ " "+ height + "Ellipse");
         primaryColor = sp.getPrimaryColor();
         secondaryColor = sp.getSecondaryColor();
         shadeType = sp.getShadeType();

@@ -1,7 +1,5 @@
 package model.interfaces;
 
-import view.interfaces.PaintCanvasBase;
-
 import java.awt.*;
 
 public interface IDrawStrategy {

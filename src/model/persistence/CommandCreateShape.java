@@ -8,12 +8,12 @@ public class CommandCreateShape implements ICommand {
     private Point startPoint, endPoint;
     private PaintCanvasBase paintCanvas;
     private IDrawStrategy drawStrategy;
-    private IShapeProperties sp;
+    private ShapeProperties sp;
     private ShapeList shapeList;
     private ICalculate calculate;
     private FactoryIDrawStrategy drawStrategyFactory;
 
-    public CommandCreateShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, IShapeProperties sp, ShapeList shapeList){
+    public CommandCreateShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, ShapeProperties sp, ShapeList shapeList){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.paintCanvas = paintCanvas;
@@ -24,15 +24,10 @@ public class CommandCreateShape implements ICommand {
     @Override
     public void run() {
 
-//        calculate = new Shape(sp);
-//        calculate.Calculate(startPoint, endPoint);
-
+        shapeList.addDrawShape(sp);
+        System.out.println("# of shapes Drawn " + shapeList.getDrawShapeList().size());
         drawStrategyFactory = new FactoryIDrawStrategy();
         drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, sp);
-
-        shapeList.addDrawShape(drawStrategy);
-        System.out.println("# of shapes Drawn" + shapeList.getDrawShapeList().size());
-
         drawStrategy.draw(sp.getStartX(), sp.getStartY(), sp.getWidth(), sp.getHeight(), sp.getStroke());
     }
 }

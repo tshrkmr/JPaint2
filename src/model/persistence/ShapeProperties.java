@@ -26,7 +26,6 @@ public class ShapeProperties implements IShapeProperties {
         this.shapeList = shapeList;
     }
 
-
     public void setProperties() {
         this.shapeType = appState.getActiveShapeType();
         this.shadeType = appState.getActiveShapeShadingType();
@@ -97,4 +96,5 @@ public class ShapeProperties implements IShapeProperties {
     public Stroke getStroke(){
         return stroke;
     }
+
 }
