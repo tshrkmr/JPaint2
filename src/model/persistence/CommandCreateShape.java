@@ -5,29 +5,25 @@ import view.interfaces.PaintCanvasBase;
 
 public class CommandCreateShape implements ICommand {
 
-    private Point startPoint, endPoint;
     private PaintCanvasBase paintCanvas;
     private IDrawStrategy drawStrategy;
-    private ShapeProperties sp;
+    private Shape shape;
     private ShapeList shapeList;
-    private ICalculate calculate;
     private FactoryIDrawStrategy drawStrategyFactory;
 
-    public CommandCreateShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, ShapeProperties sp, ShapeList shapeList){
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    public CommandCreateShape(PaintCanvasBase paintCanvas, Shape shape, ShapeList shapeList){
         this.paintCanvas = paintCanvas;
-        this.sp = sp;
+        this.shape = shape;
         this.shapeList = shapeList;
     }
 
     @Override
     public void run() {
 
-        shapeList.addDrawShape(sp);
+        shapeList.addDrawShape(shape);
         System.out.println("# of shapes Drawn " + shapeList.getDrawShapeList().size());
         drawStrategyFactory = new FactoryIDrawStrategy();
-        drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, sp);
-        drawStrategy.draw(sp.getStartX(), sp.getStartY(), sp.getWidth(), sp.getHeight(), sp.getStroke());
+        drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, shape);
+        drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
     }
 }

@@ -2,14 +2,13 @@ package model.persistence;
 
 import model.ShapeType;
 import model.interfaces.IDrawStrategy;
-import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
 
 public class FactoryIDrawStrategy {
 
     private ShapeType shapeType;
 
-    public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, ShapeProperties sp){
+    public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, Shape sp){
 
         IDrawStrategy drawStrategy = null;
 

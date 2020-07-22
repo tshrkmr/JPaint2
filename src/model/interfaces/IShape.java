@@ -6,7 +6,7 @@ import model.ShapeType;
 
 import java.awt.*;
 
-public interface IShapeProperties {
+public interface IShape {
     void setProperties();
     int getStartX();
     int getStartY();
@@ -21,6 +21,4 @@ public interface IShapeProperties {
     ShapeColor getSecondaryColor();
     ShapeColor getPrimaryColor();
     Stroke getStroke();
-    //boolean isOverlapping(int startX, int startY, int width, int height);
-    //boolean isOverlapping(int x, int y, int width, int height);
 }

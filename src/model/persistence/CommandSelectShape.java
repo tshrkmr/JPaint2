@@ -4,17 +4,16 @@ import model.interfaces.*;
 public class CommandSelectShape implements ICommand {
 
     private Point startPoint, endPoint;
-
     private int startX, startY, width, height;
     private ShapeList shapeList;
-    private ShapeProperties sp;
+    private Shape shape;
 
 
-    public CommandSelectShape(Point startPoint, Point endPoint, ShapeProperties sp, ShapeList shapeList) {
+    public CommandSelectShape(Point startPoint, Point endPoint, Shape shape, ShapeList shapeList) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.shapeList = shapeList;
-        this.sp = sp;
+        this.shape = shape;
     }
 
     @Override
@@ -26,14 +25,14 @@ public class CommandSelectShape implements ICommand {
         width = Math.abs(startPoint.getX() - endPoint.getX());
         height = Math.abs(startPoint.getY() - endPoint.getY());
 
-        for (ShapeProperties s : shapeList.getDrawShapeList()) {
+        for (Shape s : shapeList.getDrawShapeList()) {
             //System.out.println(s.getStartX() + " " + s.getStartY() + " " + s.getWidth() + " " + s.getHeight());
             if (startX < s.getStartX() + s.getWidth() && startX + width > s.getStartX() &&
                     startY < s.getStartY() + s.getHeight() && startY + height > s.getStartY()) {
                 shapeList.addSelectShape(s);
                 System.out.println("# of shapes Selected" + shapeList.getSelectedShapeList().size());
             } else {
-                System.out.println("No Match!!");
+                System.out.println("Nothing Selected!!");
             }
         }
     }

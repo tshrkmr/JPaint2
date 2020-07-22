@@ -3,7 +3,6 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IDrawStrategy;
-import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -13,20 +12,20 @@ public class StrategyCreateRectangle implements IDrawStrategy {
     private ShapeColor primaryColor, secondaryColor;
     private PaintCanvasBase paintCanvas;
     private ShapeShadingType shadeType;
-    private ShapeProperties sp;
+    private Shape shape;
     private Graphics2D graphics2d;
 
-    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, ShapeProperties sp){
+    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, Shape shape){
         this.paintCanvas = paintCanvas;
-        this.sp = sp;
+        this.shape = shape;
     }
 
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
 
-        primaryColor = sp.getPrimaryColor();
-        secondaryColor = sp.getSecondaryColor();
-        shadeType = sp.getShadeType();
+        primaryColor = shape.getPrimaryColor();
+        secondaryColor = shape.getSecondaryColor();
+        shadeType = shape.getShadeType();
 
         graphics2d = this.paintCanvas.getGraphics2D();
 

@@ -4,12 +4,12 @@ import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
 import model.interfaces.IApplicationState;
-import model.interfaces.IShapeProperties;
+import model.interfaces.IShape;
 import java.awt.*;
 
-public class ShapeProperties implements IShapeProperties {
+public class Shape implements IShape {
 
-    int startX, startY, width, height;
+    private int startX, startY, width, height;
     private ShapeType shapeType;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
@@ -19,7 +19,7 @@ public class ShapeProperties implements IShapeProperties {
     private ShapeList shapeList;
 
 
-    public ShapeProperties(Point startPoint, Point endPoint,IApplicationState appState, ShapeList shapeList){
+    public Shape(Point startPoint, Point endPoint, IApplicationState appState, ShapeList shapeList){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.appState = appState;

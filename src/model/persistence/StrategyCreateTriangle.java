@@ -3,7 +3,6 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IDrawStrategy;
-import model.interfaces.IShapeProperties;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -13,12 +12,12 @@ public class StrategyCreateTriangle implements IDrawStrategy {
     private ShapeColor primaryColor, secondaryColor;
     private PaintCanvasBase paintCanvas;
     private ShapeShadingType shadeType;
-    private ShapeProperties sp;
+    private Shape shape;
     private Graphics2D graphics2d;
 
-    public StrategyCreateTriangle(PaintCanvasBase paintCanvas, ShapeProperties sp){
+    public StrategyCreateTriangle(PaintCanvasBase paintCanvas, Shape shape){
         this.paintCanvas = paintCanvas;
-        this.sp = sp;
+        this.shape = shape;
     }
 
     @Override
@@ -27,9 +26,9 @@ public class StrategyCreateTriangle implements IDrawStrategy {
         int[] X = {x, x + width, x};
         int[] Y = {y, y + height, y+height};
 
-        primaryColor = sp.getPrimaryColor();
-        secondaryColor = sp.getSecondaryColor();
-        shadeType = sp.getShadeType();
+        primaryColor = shape.getPrimaryColor();
+        secondaryColor = shape.getSecondaryColor();
+        shadeType = shape.getShadeType();
 
         graphics2d = this.paintCanvas.getGraphics2D();
 
