@@ -6,13 +6,11 @@ import view.interfaces.PaintCanvasBase;
 
 public class FactoryIDrawStrategy {
 
-    private ShapeType shapeType;
-
     public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, Shape sp){
 
         IDrawStrategy drawStrategy = null;
 
-        shapeType = sp.getShapeType();
+        ShapeType shapeType = sp.getShapeType();
             switch (shapeType.toString()) {
                 case "ELLIPSE":
                     drawStrategy = new StrategyCreateEllipse(paintCanvas, sp);

@@ -9,11 +9,8 @@ import java.awt.*;
 
 public class StrategyCreateTriangle implements IDrawStrategy {
 
-    private ShapeColor primaryColor, secondaryColor;
-    private PaintCanvasBase paintCanvas;
-    private ShapeShadingType shadeType;
-    private Shape shape;
-    private Graphics2D graphics2d;
+    private final PaintCanvasBase paintCanvas;
+    private final Shape shape;
 
     public StrategyCreateTriangle(PaintCanvasBase paintCanvas, Shape shape){
         this.paintCanvas = paintCanvas;
@@ -26,11 +23,11 @@ public class StrategyCreateTriangle implements IDrawStrategy {
         int[] X = {x, x + width, x};
         int[] Y = {y, y + height, y+height};
 
-        primaryColor = shape.getPrimaryColor();
-        secondaryColor = shape.getSecondaryColor();
-        shadeType = shape.getShadeType();
+        ShapeColor primaryColor = shape.getPrimaryColor();
+        ShapeColor secondaryColor = shape.getSecondaryColor();
+        ShapeShadingType shadeType = shape.getShadeType();
 
-        graphics2d = this.paintCanvas.getGraphics2D();
+        Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
 
         switch (shadeType.toString()) {
             case "FILLED_IN":

@@ -11,13 +11,11 @@ import java.awt.event.MouseEvent;
 
 public class MyMouseListener extends MouseAdapter {
 
-    private Point startPoint, endPoint;
-    private PaintCanvasBase paintCanvas;
+    private Point startPoint;
+    private final PaintCanvasBase paintCanvas;
     private ICommand command;
-    private IApplicationState appState;
-    private StartAndEndPointMode startAndEndPointMode;
-    private Shape shape;
-    private ShapeList shapeList;
+    private final IApplicationState appState;
+    private final ShapeList shapeList;
 
     public MyMouseListener(PaintCanvasBase paintCanvas, IApplicationState appState, ShapeList shapeList) {
         this.paintCanvas = paintCanvas;
@@ -33,21 +31,19 @@ public class MyMouseListener extends MouseAdapter {
     @Override
     public void mouseReleased(MouseEvent e){
 
-        endPoint = new Point(e.getX(), e.getY());
-        shape = new Shape(startPoint, endPoint, appState, shapeList);
-        shape.setProperties();
+        Point endPoint = new Point(e.getX(), e.getY());
 
-        startAndEndPointMode = appState.getActiveStartAndEndPointMode();
+        StartAndEndPointMode startAndEndPointMode = appState.getActiveStartAndEndPointMode();
 
         switch (startAndEndPointMode.toString()) {
             case "DRAW":
-                command = new CommandCreateShape(paintCanvas, shape, shapeList);
+                command = new CommandCreateShape(startPoint, endPoint, paintCanvas, shapeList, appState);
                 break;
             case "SELECT":
-                command = new CommandSelectShape(startPoint, endPoint, shape, shapeList);
+                command = new CommandSelectShape(startPoint, endPoint, shapeList);
                 break;
             case "MOVE":
-                command = new CommandMoveShape();
+                command = new CommandMoveShape(startPoint, endPoint, shapeList, paintCanvas, appState);
                 break;
         }
         command.run();
