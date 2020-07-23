@@ -9,11 +9,9 @@ import java.awt.*;
 
 public class CommandMoveShape implements ICommand {
 
-    private Point startPoint, endPoint;
-    private ShapeList shapeList;
-    private int dx, dy;
-    private PaintCanvasBase paintCanvas;
-    int newStartX, newStartY;
+    private final Point startPoint, endPoint;
+    private final ShapeList shapeList;
+    private final PaintCanvasBase paintCanvas;
     private IApplicationState appState;
 
     public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas, IApplicationState appState){
@@ -29,15 +27,13 @@ public class CommandMoveShape implements ICommand {
 
         System.out.println("Select Command");
 
-        dx = endPoint.getX() - startPoint.getX();
-        dy = endPoint.getY() - startPoint.getY();
+        int dx = endPoint.getX() - startPoint.getX();
+        int dy = endPoint.getY() - startPoint.getY();
 
         for (Shape s : shapeList.getSelectedShapeList()) {
             shapeList.removeDrawShape(s);
-            //newStartX = s.getStartX() +dx;
-            //newStartY = s.getStartY() +dy;
-            s.setStartX(s.getStartX() +dx);
-            s.setStartY(s.getStartY() +dy);
+            s.setStartX(s.getStartX() + dx);
+            s.setStartY(s.getStartY() + dy);
             shapeList.addDrawShape(s);
         }
 

@@ -7,8 +7,8 @@ public class CommandCreateShape implements ICommand {
 
     private final PaintCanvasBase paintCanvas;
     private final ShapeList shapeList;
-    private Point startPoint, endPoint;
-    private IApplicationState appState;
+    private final Point startPoint, endPoint;
+    private final IApplicationState appState;
 
 
     public CommandCreateShape(Point startPoint, Point endPoint,PaintCanvasBase paintCanvas, ShapeList shapeList, IApplicationState appState){
