@@ -10,7 +10,6 @@ public class CommandCreateShape implements ICommand {
     private final Point startPoint, endPoint;
     private final IApplicationState appState;
 
-
     public CommandCreateShape(Point startPoint, Point endPoint,PaintCanvasBase paintCanvas, ShapeList shapeList, IApplicationState appState){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
@@ -21,7 +20,7 @@ public class CommandCreateShape implements ICommand {
 
     @Override
     public void run() {
-        Shape shape = new Shape(startPoint, endPoint, appState, shapeList, paintCanvas);
+        Shape shape = new Shape(startPoint, endPoint, appState);
         shape.setProperties();
 
         shapeList.addDrawShape(shape);

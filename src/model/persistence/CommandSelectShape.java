@@ -5,26 +5,26 @@ public class CommandSelectShape implements ICommand {
 
     private final Point startPoint, endPoint;
     private final ShapeList shapeList;
+    private final IApplicationState appState;
 
-    public CommandSelectShape(Point startPoint, Point endPoint, ShapeList shapeList) {
+    public CommandSelectShape(Point startPoint, Point endPoint, ShapeList shapeList, IApplicationState appState) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.shapeList = shapeList;
+        this.appState = appState;
     }
 
     @Override
     public void run() {
         System.out.println("Select Command");
         shapeList.selectShapeList.clear();
-        int startX = Math.min(startPoint.getX(), endPoint.getX());
-        int startY = Math.min(startPoint.getY(), endPoint.getY());
-        int width = Math.abs(startPoint.getX() - endPoint.getX());
-        int height = Math.abs(startPoint.getY() - endPoint.getY());
+
+        Shape sel = new Shape(startPoint, endPoint, appState);
+        sel.setProperties();
 
         for (Shape s : shapeList.getDrawShapeList()) {
-            //System.out.println(s.getStartX() + " " + s.getStartY() + " " + s.getWidth() + " " + s.getHeight());
-            if (startX < s.getStartX() + s.getWidth() && startX + width > s.getStartX() &&
-                    startY < s.getStartY() + s.getHeight() && startY + height > s.getStartY()) {
+            if (sel.getStartX() < s.getStartX() + s.getWidth() && sel.getStartX() + sel.getWidth() > s.getStartX() &&
+                    sel.getStartY() < s.getStartY() + s.getHeight() && sel.getStartY() + sel.getHeight() > s.getStartY()) {
 
                 shapeList.addSelectShape(s);
             } else {

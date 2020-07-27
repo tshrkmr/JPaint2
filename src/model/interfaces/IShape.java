@@ -12,10 +12,6 @@ public interface IShape {
     int getStartY();
     int getWidth();
     int getHeight();
-    void setMoveX(int x);
-    void setMoveY(int y);
-    int getMoveX();
-    int getMoveY();
     void setStartX(int x);
     void setStartY(int y);
     void setWidth(int width);
@@ -25,5 +21,4 @@ public interface IShape {
     ShapeColor getSecondaryColor();
     ShapeColor getPrimaryColor();
     Stroke getStroke();
-    void createMovedShape(int newStartX, int newStartY, int newWidth, int newHeight, Stroke newStroke);
 }

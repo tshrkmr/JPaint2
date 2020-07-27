@@ -2,13 +2,14 @@ package model.persistence;
 
 import model.ShapeType;
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
 public class FactoryIDrawStrategy {
 
     public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, Shape sp){
 
-        IDrawStrategy drawStrategy = null;
+        model.interfaces.IDrawStrategy drawStrategy = null;
 
         ShapeType shapeType = sp.getShapeType();
             switch (shapeType.toString()) {
@@ -24,4 +25,8 @@ public class FactoryIDrawStrategy {
         }
         return drawStrategy;
     }
+
+//        public IDrawStrategy drawStrategy(PaintCanvasBase paintCanvas, Shape sp){
+//    }
+
 }

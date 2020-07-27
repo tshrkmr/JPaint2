@@ -17,7 +17,7 @@ public enum ShapeColor {
     WHITE(Color.WHITE),
     YELLOW(Color.YELLOW);
 
-    private Color color;
+    private final Color color;
 
     ShapeColor(Color color) {
         this.color = color;

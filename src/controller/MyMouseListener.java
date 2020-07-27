@@ -40,7 +40,7 @@ public class MyMouseListener extends MouseAdapter {
                 command = new CommandCreateShape(startPoint, endPoint, paintCanvas, shapeList, appState);
                 break;
             case "SELECT":
-                command = new CommandSelectShape(startPoint, endPoint, shapeList);
+                command = new CommandSelectShape(startPoint, endPoint, shapeList, appState);
                 break;
             case "MOVE":
                 command = new CommandMoveShape(startPoint, endPoint, shapeList, paintCanvas, appState);

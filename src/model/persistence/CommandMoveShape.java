@@ -2,7 +2,6 @@ package model.persistence;
 
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
-import model.interfaces.IDrawStrategy;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -12,7 +11,7 @@ public class CommandMoveShape implements ICommand {
     private final Point startPoint, endPoint;
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
-    private IApplicationState appState;
+    private final IApplicationState appState;
 
     public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas, IApplicationState appState){
         this.startPoint = startPoint;
@@ -43,10 +42,10 @@ public class CommandMoveShape implements ICommand {
 
         for (Shape shape : shapeList.getDrawShapeList()) {
             FactoryIDrawStrategy drawStrategyFactory = new FactoryIDrawStrategy();
-            IDrawStrategy drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, shape);
+            model.interfaces.IDrawStrategy drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, shape);
             drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
         }
-
+        System.out.println("# of Shapes Moves");
         //s.createMovedShape(newStartX, newStartY, s.getWidth(), s.getHeight(), s.getStroke());
 
     }
