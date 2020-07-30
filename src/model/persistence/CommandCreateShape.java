@@ -26,8 +26,7 @@ public class CommandCreateShape implements ICommand {
         shapeList.addDrawShape(shape);
         System.out.println("# of shapes Drawn " + shapeList.getDrawShapeList().size());
 
-        FactoryIDrawStrategy drawStrategyFactory = new FactoryIDrawStrategy();
-        IDrawStrategy drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, shape);
-        drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
+        FactorySelectShape factorySelectShape = new FactorySelectShape();
+        factorySelectShape.select(paintCanvas, shape);
     }
 }

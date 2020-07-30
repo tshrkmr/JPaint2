@@ -3,7 +3,6 @@ package model.persistence;
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
 import view.interfaces.PaintCanvasBase;
-
 import java.awt.*;
 
 public class CommandMoveShape implements ICommand {
@@ -41,12 +40,9 @@ public class CommandMoveShape implements ICommand {
         graphics2d.fillRect(0 ,0, paintCanvas.getWidth(), paintCanvas.getHeight());
 
         for (Shape shape : shapeList.getDrawShapeList()) {
-            FactoryIDrawStrategy drawStrategyFactory = new FactoryIDrawStrategy();
-            model.interfaces.IDrawStrategy drawStrategy = drawStrategyFactory.drawStrategy(paintCanvas, shape);
-            drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
+            FactorySelectShape factorySelectShape = new FactorySelectShape();
+            factorySelectShape.select(paintCanvas, shape);
         }
-        System.out.println("# of Shapes Moves");
-        //s.createMovedShape(newStartX, newStartY, s.getWidth(), s.getHeight(), s.getStroke());
-
+        System.out.println("# of Shapes Moved " + shapeList.getDrawShapeList().size());
     }
 }
