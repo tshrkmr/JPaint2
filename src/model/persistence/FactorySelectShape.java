@@ -8,7 +8,7 @@ public class FactorySelectShape {
 
     public void select(PaintCanvasBase paintCanvas, Shape shape) {
 
-        IDrawStrategy drawStrategy = null;
+        IDrawStrategy drawStrategy;
 
         ShapeType shapeType = shape.getShapeType();
         switch (shapeType.toString()) {
@@ -21,6 +21,8 @@ public class FactorySelectShape {
             case "TRIANGLE":
                 drawStrategy = FactoryIDrawStrategy.drawStrategyTriangle(paintCanvas, shape);
                 break;
+            default:
+                drawStrategy = FactoryIDrawStrategy.drawStrategyNull();
         }
         drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
     }

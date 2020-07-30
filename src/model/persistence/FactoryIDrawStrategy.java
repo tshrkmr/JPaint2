@@ -16,4 +16,8 @@ public class FactoryIDrawStrategy {
     public static IDrawStrategy drawStrategyRectangle(PaintCanvasBase paintCanvas, Shape sp){
         return new StrategyCreateRectangle(paintCanvas, sp);
     }
+
+    public static IDrawStrategy drawStrategyNull(){
+        return new NullDropDownSelect();
+    }
 }
