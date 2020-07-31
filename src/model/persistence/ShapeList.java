@@ -3,9 +3,9 @@ package model.persistence;
 import java.util.ArrayList;
 
 public class ShapeList {
-    ArrayList<Shape> drawShapeList;
-    ArrayList<Shape> selectShapeList;
-    ArrayList<Shape> copyShapeList;
+    final ArrayList<Shape> drawShapeList;
+    final ArrayList<Shape> selectShapeList;
+    final ArrayList<Shape> copyShapeList;
 
     public ShapeList(){
        drawShapeList = new ArrayList<>();
@@ -13,19 +13,21 @@ public class ShapeList {
        copyShapeList = new ArrayList<>();
     }
 
-    public void addDrawShape(Shape ids){
-        drawShapeList.add(ids);
+    public void addDrawShape(Shape drawShape){
+        drawShapeList.add(drawShape);
     }
 
-    public void addSelectShape(Shape ids1){
-        selectShapeList.add(ids1);
+    public void addSelectShape(Shape selectShape){
+        selectShapeList.add(selectShape);
     }
 
-    public void addCopyShape(Shape ids2){
-        copyShapeList.add(ids2);
+    public void addCopyShape(Shape copyShape){
+        copyShapeList.add(copyShape);
     }
 
-    public void removeDrawShape(Shape ids3) { drawShapeList.remove(ids3); }
+    public void removeDrawShape(Shape rDrawShape) { drawShapeList.remove(rDrawShape); }
+
+    //public void removeCopyShape(Shape rCopyShape) { copyShapeList.remove(rCopyShape); }
 
     public ArrayList<Shape> getDrawShapeList(){
         return drawShapeList;

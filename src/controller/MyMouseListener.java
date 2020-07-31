@@ -3,8 +3,8 @@ package controller;
 import model.StartAndEndPointMode;
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
+//import model.persistence.*;
 import model.persistence.*;
-import model.persistence.Point;
 import view.interfaces.PaintCanvasBase;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -43,7 +43,7 @@ public class MyMouseListener extends MouseAdapter {
                 command = new CommandSelectShape(startPoint, endPoint, shapeList, appState);
                 break;
             case "MOVE":
-                command = new CommandMoveShape(startPoint, endPoint, shapeList, paintCanvas, appState);
+                command = new CommandMoveShape(startPoint, endPoint, shapeList, paintCanvas);
                 break;
         }
         command.run();

@@ -2,19 +2,23 @@ package controller;
 
 import model.interfaces.IApplicationState;
 import model.persistence.CommandCopyShape;
+import model.persistence.CommandPasteShape;
 import model.persistence.ShapeList;
 import view.EventName;
 import view.interfaces.IUiModule;
+import view.interfaces.PaintCanvasBase;
 
 public class JPaintController implements IJPaintController {
     private final IUiModule uiModule;
     private final IApplicationState applicationState;
-    private ShapeList shapeList;
+    private final ShapeList shapeList;
+    private final PaintCanvasBase paintCanvas;
 
-    public JPaintController(IUiModule uiModule, IApplicationState applicationState, ShapeList shapeList) {
+    public JPaintController(IUiModule uiModule, IApplicationState applicationState, ShapeList shapeList, PaintCanvasBase paintCanvas) {
         this.uiModule = uiModule;
         this.applicationState = applicationState;
         this.shapeList = shapeList;
+        this.paintCanvas = paintCanvas;
     }
 
     @Override
@@ -29,5 +33,6 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_SHADING_TYPE, () -> applicationState.setActiveShadingType());
         uiModule.addEvent(EventName.CHOOSE_START_POINT_ENDPOINT_MODE, () -> applicationState.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.COPY, () -> new CommandCopyShape(shapeList).run());
+        uiModule.addEvent(EventName.PASTE, () -> new CommandPasteShape(shapeList, paintCanvas, applicationState).run());
     }
 }

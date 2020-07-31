@@ -4,7 +4,7 @@ import model.interfaces.ICommand;
 
 public class CommandCopyShape implements ICommand {
 
-    private ShapeList shapeList;
+    private final ShapeList shapeList;
 
     public CommandCopyShape(ShapeList shapeList){
         this.shapeList = shapeList;

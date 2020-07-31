@@ -8,37 +8,12 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/JPaint-master 3/src/controller/commands/PasteCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/controller/JPaintController.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/controller/MyMouseListener.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/Main.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/CommandCopyShape.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/CommandCreateShape.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/CommandMoveShape.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/CommandSelectShape.java">
           <value>
             <set />
           </value>
@@ -48,32 +23,7 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/FactoryIDrawStrategy.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/FactorySelectShape.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/NullDropDownSelect.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/Shape.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/ShapeList.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/model/persistence/StrategyCreateEllipse.java">
           <value>
             <set />
           </value>

@@ -14,7 +14,7 @@ public class Shape implements IShape {
     private ShapeType shapeType;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
-    public IApplicationState appState;
+    public final IApplicationState appState;
     private Stroke stroke;
     private final Point startPoint, endPoint;
 
@@ -94,5 +94,9 @@ public class Shape implements IShape {
     public Stroke getStroke(){
         return stroke;
     }
+
+    public Point getStartPoint(){return startPoint;}
+
+    public Point getEndPoint(){return endPoint;}
 
 }

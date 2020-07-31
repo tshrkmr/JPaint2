@@ -12,8 +12,6 @@ import view.interfaces.IGuiWindow;
 import view.interfaces.PaintCanvasBase;
 import view.interfaces.IUiModule;
 
-import java.awt.*;
-
 public class Main {
     public static void main(String[] args){
         PaintCanvasBase paintCanvas = new PaintCanvas();
@@ -23,7 +21,7 @@ public class Main {
 
         ShapeList shapeList = new ShapeList();
 
-        IJPaintController controller = new JPaintController(uiModule, appState, shapeList);
+        IJPaintController controller = new JPaintController(uiModule, appState, shapeList, paintCanvas);
         controller.setup();
 
         //ShapeList shapeList = new ShapeList();

@@ -1,43 +1,38 @@
 package model.persistence;
 
-import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
 import view.interfaces.PaintCanvasBase;
-import java.awt.*;
 
 public class CommandMoveShape implements ICommand {
 
     private final Point startPoint, endPoint;
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
-    private final IApplicationState appState;
 
-    public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas, IApplicationState appState){
+    public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.shapeList = shapeList;
         this.paintCanvas = paintCanvas;
-        this.appState = appState;
     }
 
     @Override
     public void run() {
 
-        System.out.println("Select Command");
+        System.out.println("Move Command");
 
         int dx = endPoint.getX() - startPoint.getX();
         int dy = endPoint.getY() - startPoint.getY();
 
-        for (Shape s : shapeList.getSelectShapeList()) {
-            shapeList.removeDrawShape(s);
-            s.setStartX(s.getStartX() + dx);
-            s.setStartY(s.getStartY() + dy);
-            shapeList.addDrawShape(s);
+        for (Shape shape : shapeList.getSelectShapeList()) {
+            shapeList.removeDrawShape(shape);
+            shape.setStartX(shape.getStartX() + dx);
+            shape.setStartY(shape.getStartY() + dy);
+            shapeList.addDrawShape(shape);
         }
 
-        Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
-        graphics2d.setColor(Color.white);
-        graphics2d.fillRect(0 ,0, paintCanvas.getWidth(), paintCanvas.getHeight());
+        ClearCanvas clearCanvas= new ClearCanvas();
+        clearCanvas.clear(paintCanvas);
 
         for (Shape shape : shapeList.getDrawShapeList()) {
             FactorySelectShape factorySelectShape = new FactorySelectShape();
