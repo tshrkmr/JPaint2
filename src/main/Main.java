@@ -20,10 +20,13 @@ public class Main {
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
         ApplicationState appState = new ApplicationState(uiModule);
-        IJPaintController controller = new JPaintController(uiModule, appState);
-        controller.setup();
 
         ShapeList shapeList = new ShapeList();
+
+        IJPaintController controller = new JPaintController(uiModule, appState, shapeList);
+        controller.setup();
+
+        //ShapeList shapeList = new ShapeList();
         paintCanvas.addMouseListener(new MyMouseListener(paintCanvas,appState, shapeList));
         // For example purposes only; remove all lines below from your final project.
 

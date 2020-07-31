@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class ShapeList {
     ArrayList<Shape> drawShapeList;
     ArrayList<Shape> selectShapeList;
-    ArrayList<Shape> moveShapeList;
+    ArrayList<Shape> copyShapeList;
+
     public ShapeList(){
        drawShapeList = new ArrayList<>();
        selectShapeList = new ArrayList<>();
+       copyShapeList = new ArrayList<>();
     }
 
     public void addDrawShape(Shape ids){
@@ -19,23 +21,21 @@ public class ShapeList {
         selectShapeList.add(ids1);
     }
 
-    public void removeDrawShape(Shape ids2){
-        drawShapeList.remove(ids2);
+    public void addCopyShape(Shape ids2){
+        copyShapeList.add(ids2);
     }
-//    public void addMoveShape(Shape ids2){
-//        moveShapeList.add(ids2);
-//    }
+
+    public void removeDrawShape(Shape ids3) { drawShapeList.remove(ids3); }
 
     public ArrayList<Shape> getDrawShapeList(){
         return drawShapeList;
     }
 
-    public ArrayList<Shape> getSelectedShapeList(){
+    public ArrayList<Shape> getSelectShapeList(){
         return selectShapeList;
     }
 
-//    public ArrayList<Shape> getMoveShapeList(){
-//        return moveShapeList;
-//    }
-
+    public ArrayList<Shape> getCopyShapeList(){
+        return copyShapeList;
+    }
 }

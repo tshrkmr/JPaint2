@@ -28,7 +28,7 @@ public class CommandMoveShape implements ICommand {
         int dx = endPoint.getX() - startPoint.getX();
         int dy = endPoint.getY() - startPoint.getY();
 
-        for (Shape s : shapeList.getSelectedShapeList()) {
+        for (Shape s : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(s);
             s.setStartX(s.getStartX() + dx);
             s.setStartY(s.getStartY() + dy);

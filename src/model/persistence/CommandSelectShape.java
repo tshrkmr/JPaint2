@@ -19,18 +19,20 @@ public class CommandSelectShape implements ICommand {
         System.out.println("Select Command");
         shapeList.selectShapeList.clear();
 
-        Shape sel = new Shape(startPoint, endPoint, appState);
-        sel.setProperties();
+        Shape selectShape = new Shape(startPoint, endPoint, appState);
+        selectShape.setProperties();
 
-        for (Shape s : shapeList.getDrawShapeList()) {
-            if (sel.getStartX() < s.getStartX() + s.getWidth() && sel.getStartX() + sel.getWidth() > s.getStartX() &&
-                    sel.getStartY() < s.getStartY() + s.getHeight() && sel.getStartY() + sel.getHeight() > s.getStartY()) {
+        for (Shape shape : shapeList.getDrawShapeList()) {
+            if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
+                    && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()
+                    && selectShape.getStartY() < shape.getStartY() + shape.getHeight()
+                    && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()) {
 
-                shapeList.addSelectShape(s);
+                shapeList.addSelectShape(shape);
             } else {
                 System.out.println("Nothing Selected!!");
             }
         }
-        System.out.println("# of shapes Selected " + shapeList.getSelectedShapeList().size());
+        System.out.println("# of shapes Selected " + shapeList.getSelectShapeList().size());
     }
 }
