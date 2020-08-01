@@ -20,6 +20,8 @@ public class StrategyCreateRectangle implements IDrawStrategy {
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
 
+        System.out.println(x+ " "+ y+ " "+ width+ " "+ height + " Rectangle");
+
         ShapeColor primaryColor = shape.getPrimaryColor();
         ShapeColor secondaryColor = shape.getSecondaryColor();
         ShapeShadingType shadeType = shape.getShadeType();

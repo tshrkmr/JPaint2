@@ -20,7 +20,8 @@ public class StrategyCreateEllipse implements IDrawStrategy {
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
 
-        System.out.println(x+ " "+ y+ " "+ width+ " "+ height + "Ellipse");
+        System.out.println(x+ " "+ y+ " "+ width+ " "+ height + " Ellipse");
+
         ShapeColor primaryColor = shape.getPrimaryColor();
         ShapeColor secondaryColor = shape.getSecondaryColor();
         ShapeShadingType shadeType = shape.getShadeType();

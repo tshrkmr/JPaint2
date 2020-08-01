@@ -1,9 +1,7 @@
 package controller;
 
 import model.interfaces.IApplicationState;
-import model.persistence.CommandCopyShape;
-import model.persistence.CommandPasteShape;
-import model.persistence.ShapeList;
+import model.persistence.*;
 import view.EventName;
 import view.interfaces.IUiModule;
 import view.interfaces.PaintCanvasBase;
@@ -34,5 +32,6 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_START_POINT_ENDPOINT_MODE, () -> applicationState.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.COPY, () -> new CommandCopyShape(shapeList).run());
         uiModule.addEvent(EventName.PASTE, () -> new CommandPasteShape(shapeList, paintCanvas, applicationState).run());
+        uiModule.addEvent(EventName.DELETE, () -> new CommandDeleteShape(shapeList, paintCanvas).run());
     }
 }

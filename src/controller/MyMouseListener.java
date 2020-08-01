@@ -3,7 +3,6 @@ package controller;
 import model.StartAndEndPointMode;
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
-//import model.persistence.*;
 import model.persistence.*;
 import view.interfaces.PaintCanvasBase;
 import java.awt.event.MouseAdapter;

@@ -14,7 +14,7 @@ public class Shape implements IShape {
     private ShapeType shapeType;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
-    public final IApplicationState appState;
+    public IApplicationState appState;
     private Stroke stroke;
     private final Point startPoint, endPoint;
 
@@ -25,10 +25,13 @@ public class Shape implements IShape {
     }
 
     public void setProperties() {
-        this.shapeType = appState.getActiveShapeType();
-        this.shadeType = appState.getActiveShapeShadingType();
-        this.primaryColor = appState.getActivePrimaryColor();
-        this.secondaryColor = appState.getActiveSecondaryColor();
+
+        setShapeType(appState.getActiveShapeType());
+        setShadeType(appState.getActiveShapeShadingType());
+        setPrimaryColor(appState.getActivePrimaryColor());
+        setSecondaryColor(appState.getActiveSecondaryColor());
+        stroke = new BasicStroke(4);
+        setStroke(stroke);
         //stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
         stroke = new BasicStroke(4);
 
@@ -58,6 +61,24 @@ public class Shape implements IShape {
     public void setHeight(int h){
         this.height = h;
     }
+
+    public void setShapeType(ShapeType shapeType){
+        this.shapeType = shapeType;
+    }
+
+    public void setShadeType(ShapeShadingType shadeType){
+        this.shadeType = shadeType;
+    }
+
+    public void setPrimaryColor(ShapeColor primaryColor){
+        this.primaryColor = primaryColor;
+    }
+
+    public void setSecondaryColor(ShapeColor secondaryColor){
+        this.secondaryColor = secondaryColor;
+    }
+
+    public void setStroke(Stroke stroke) {this.stroke = stroke;}
 
     public int getStartX(){
         return startX;
@@ -98,5 +119,4 @@ public class Shape implements IShape {
     public Point getStartPoint(){return startPoint;}
 
     public Point getEndPoint(){return endPoint;}
-
 }

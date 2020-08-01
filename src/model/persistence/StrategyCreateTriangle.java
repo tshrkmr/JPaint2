@@ -20,6 +20,8 @@ public class StrategyCreateTriangle implements IDrawStrategy {
     @Override
     public void draw(int x, int y, int width, int height, Stroke stroke) {
 
+        System.out.println(x+ " "+ y+ " "+ width+ " "+ height + " Triangle");
+
         int[] X = {x, x + width, x};
         int[] Y = {y, y + height, y+height};
 

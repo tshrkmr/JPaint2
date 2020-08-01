@@ -31,8 +31,7 @@ public class CommandMoveShape implements ICommand {
             shapeList.addDrawShape(shape);
         }
 
-        ClearCanvas clearCanvas= new ClearCanvas();
-        clearCanvas.clear(paintCanvas);
+        ClearCanvas.clear(paintCanvas);
 
         for (Shape shape : shapeList.getDrawShapeList()) {
             FactorySelectShape factorySelectShape = new FactorySelectShape();
