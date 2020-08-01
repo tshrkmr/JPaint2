@@ -25,8 +25,8 @@ public class CommandDeleteShape implements ICommand {
         ClearCanvas.clear(paintCanvas);
 
         for (Shape shape : shapeList.getDrawShapeList()) {
-            FactorySelectShape factorySelectShape = new FactorySelectShape();
-            factorySelectShape.select(paintCanvas, shape);
+            //FactorySelectShape factorySelectShape = new FactorySelectShape();
+            FactorySelectShape.select(paintCanvas, shape);
         }
         System.out.println("# of Shapes Deleted " + shapeList.getDeleteShapeList().size());
     }

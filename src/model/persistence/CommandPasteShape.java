@@ -1,6 +1,5 @@
 package model.persistence;
 
-import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
 import view.interfaces.PaintCanvasBase;
 
@@ -8,10 +7,8 @@ public class CommandPasteShape implements ICommand {
 
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
-    private final IApplicationState appState;
 
-    public CommandPasteShape(ShapeList shapeList, PaintCanvasBase paintCanvas, IApplicationState appState){
-        this.appState = appState;
+    public CommandPasteShape(ShapeList shapeList, PaintCanvasBase paintCanvas){
         this.shapeList = shapeList;
         this.paintCanvas = paintCanvas;
     }
@@ -37,9 +34,8 @@ public class CommandPasteShape implements ICommand {
         ClearCanvas.clear(paintCanvas);
 
         for (Shape shape : shapeList.getDrawShapeList()) {
-            System.out.println("Hello1");
-            FactorySelectShape factorySelectShape = new FactorySelectShape();
-            factorySelectShape.select(paintCanvas, shape);
+            //FactorySelectShape factorySelectShape = new FactorySelectShape();
+            FactorySelectShape.select(paintCanvas, shape);
         }
 
         System.out.println("# of Shapes Pasted " + shapeList.getDrawShapeList().size());

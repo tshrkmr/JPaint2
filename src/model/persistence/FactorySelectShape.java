@@ -6,7 +6,7 @@ import view.interfaces.PaintCanvasBase;
 
 public class FactorySelectShape {
 
-    public void select(PaintCanvasBase paintCanvas, Shape shape) {
+    public static void select(PaintCanvasBase paintCanvas, Shape shape) {
 
         IDrawStrategy drawStrategy;
 
