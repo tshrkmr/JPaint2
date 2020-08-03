@@ -1,9 +1,10 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
-public class CommandPasteShape implements ICommand {
+public class CommandPasteShape implements ICommand, IUndoRedo {
 
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
@@ -30,14 +31,20 @@ public class CommandPasteShape implements ICommand {
             pasteShape.setStroke(shape.getStroke());
             shapeList.addDrawShape(pasteShape);
         }
+        ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);
 
-        ClearCanvas.clear(paintCanvas);
-
-        for (Shape shape : shapeList.getDrawShapeList()) {
-            //FactorySelectShape factorySelectShape = new FactorySelectShape();
-            FactorySelectShape.select(paintCanvas, shape);
-        }
+        CommandHistory.add(this);
 
         System.out.println("# of Shapes Pasted " + shapeList.getDrawShapeList().size());
+    }
+
+    @Override
+    public void undo() {
+
+    }
+
+    @Override
+    public void redo() {
+
     }
 }

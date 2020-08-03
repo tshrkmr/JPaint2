@@ -1,13 +1,15 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
-public class CommandMoveShape implements ICommand {
+public class CommandMoveShape implements ICommand, IUndoRedo {
 
     private final Point startPoint, endPoint;
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
+    private int dx, dy;
 
     public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas){
         this.startPoint = startPoint;
@@ -21,22 +23,38 @@ public class CommandMoveShape implements ICommand {
 
         System.out.println("Move Command");
 
-        int dx = endPoint.getX() - startPoint.getX();
-        int dy = endPoint.getY() - startPoint.getY();
+        dx = endPoint.getX() - startPoint.getX();
+        dy = endPoint.getY() - startPoint.getY();
 
+        Move();
+
+        CommandHistory.add(this);
+        System.out.println("# of Shapes Moved " + shapeList.getDrawShapeList().size());
+    }
+
+    @Override
+    public void undo() {
+        for (Shape shape : shapeList.getSelectShapeList()) {
+            shapeList.removeDrawShape(shape);
+            shape.setStartX(shape.getStartX() - dx);
+            shape.setStartY(shape.getStartY() - dy);
+            shapeList.addDrawShape(shape);
+        }
+        ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);
+    }
+
+    @Override
+    public void redo() {
+        Move();
+    }
+
+    private void Move() {
         for (Shape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
             shape.setStartX(shape.getStartX() + dx);
             shape.setStartY(shape.getStartY() + dy);
             shapeList.addDrawShape(shape);
         }
-
-        ClearCanvas.clear(paintCanvas);
-
-        for (Shape shape : shapeList.getDrawShapeList()) {
-            //FactorySelectShape factorySelectShape = new FactorySelectShape();
-            FactorySelectShape.select(paintCanvas, shape);
-        }
-        System.out.println("# of Shapes Moved " + shapeList.getDrawShapeList().size());
+        ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);
     }
 }

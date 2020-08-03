@@ -1,3 +1,6 @@
+package model.persistence;
+
+import model.interfaces.IUndoRedo;
 import java.util.Stack;
 
 class CommandHistory {
