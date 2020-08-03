@@ -5,7 +5,6 @@ import model.ShapeShadingType;
 import model.ShapeType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IShape;
-
 import java.awt.*;
 
 public class Shape implements IShape {

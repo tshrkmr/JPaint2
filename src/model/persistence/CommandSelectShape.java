@@ -1,17 +1,21 @@
 package model.persistence;
 
 import model.interfaces.*;
+import view.interfaces.PaintCanvasBase;
+
 public class CommandSelectShape implements ICommand {
 
     private final Point startPoint, endPoint;
     private final ShapeList shapeList;
     private final IApplicationState appState;
+    private PaintCanvasBase paintCanvas;
 
-    public CommandSelectShape(Point startPoint, Point endPoint, ShapeList shapeList, IApplicationState appState) {
+    public CommandSelectShape(Point startPoint, Point endPoint, ShapeList shapeList, IApplicationState appState, PaintCanvasBase paintCanvas) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.shapeList = shapeList;
         this.appState = appState;
+        this.paintCanvas = paintCanvas;
     }
 
     @Override
@@ -29,6 +33,8 @@ public class CommandSelectShape implements ICommand {
                     && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()) {
 
                 shapeList.addSelectShape(shape);
+                OutlineSelectedShape outlineSelectedShape = new OutlineSelectedShape(shape, paintCanvas);
+                outlineSelectedShape.drawDash();
             } else {
                 System.out.println("Nothing Selected!!");
             }

@@ -13,6 +13,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/JPaint-master 3/src/view/gui/DecoratorShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/JPaint-master 3/src/view/gui/DecoratorShapeDraw.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/JPaint-master 3/src/view/gui/ShapeDecorator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/controller/JPaintController.java">
           <value>
             <set />
@@ -53,12 +68,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/DecoratorShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/DecoratorShapeDash.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/FactorySelectShape.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/OutlineSelectedShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/ProxyOutlineSelectedShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/Shape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/ShapeDash.java">
           <value>
             <set />
           </value>
@@ -79,6 +119,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/StrategyCreateTriangle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>
