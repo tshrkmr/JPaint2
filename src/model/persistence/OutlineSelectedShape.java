@@ -15,14 +15,14 @@ public class OutlineSelectedShape {
         this.paintCanvas = paintCanvas;
     }
 
-    public void drawDash(){
+    public void drawDash(Stroke stroke){
         int x = shape.getStartX()-5;
         int y = shape.getStartY()-5;
         int w = shape.getWidth()+10;
         int h = shape.getHeight()+10;
         int[] X = {x, x + w, x};
         int[] Y = {y, y + h, y+h};
-        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+        //Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
         Graphics2D graphics2d = this.paintCanvas.getGraphics2D();
 
         ShapeType shapeType = shape.getShapeType();

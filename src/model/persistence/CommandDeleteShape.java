@@ -18,11 +18,7 @@ public class CommandDeleteShape implements ICommand, IUndoRedo {
     public void run() {
         System.out.println("Delete Command");
 
-        for (Shape shape : shapeList.getSelectShapeList()) {
-            shapeList.removeDrawShape(shape);
-        }
-        ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);
-
+        Delete();
         CommandHistory.add(this);
 
         System.out.println("# of Shapes Deleted " + shapeList.getDeleteShapeList().size());
@@ -38,6 +34,10 @@ public class CommandDeleteShape implements ICommand, IUndoRedo {
 
     @Override
     public void redo() {
+        Delete();
+    }
+
+    private void Delete(){
         for (Shape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
         }

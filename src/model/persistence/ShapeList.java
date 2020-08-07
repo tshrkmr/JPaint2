@@ -39,7 +39,7 @@ public class ShapeList {
 
     public void removeDrawShape(Shape rDrawShape) { drawShapeList.remove(rDrawShape); }
 
-    //public void removeCopyShape(Shape rCopyShape) { copyShapeList.remove(rCopyShape); }
+    public void removePasteShape(Shape rPasteShape) { pasteShapeList.remove(rPasteShape); }
 
     public ArrayList<Shape> getDrawShapeList(){
         return drawShapeList;
