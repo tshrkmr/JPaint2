@@ -2,11 +2,12 @@ package model.persistence;
 
 import model.ShapeType;
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
 public class FactorySelectShape {
 
-    public static void select(PaintCanvasBase paintCanvas, Shape shape) {
+    public static void select(PaintCanvasBase paintCanvas, IShape shape) {
 
         IDrawStrategy drawStrategy;
 

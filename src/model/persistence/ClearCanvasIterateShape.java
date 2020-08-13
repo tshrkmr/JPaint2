@@ -1,5 +1,6 @@
 package model.persistence;
 
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -12,7 +13,7 @@ public class ClearCanvasIterateShape {
         graphics2d.setColor(Color.white);
         graphics2d.fillRect(0, 0, paintCanvas.getWidth(), paintCanvas.getHeight());
 
-        for (Shape shape : shapeList.getDrawShapeList()) {
+        for (IShape shape : shapeList.getDrawShapeList()) {
             FactorySelectShape.select(paintCanvas, shape);
         }
     }

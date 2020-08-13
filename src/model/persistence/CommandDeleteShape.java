@@ -1,6 +1,7 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IShape;
 import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
@@ -26,7 +27,7 @@ public class CommandDeleteShape implements ICommand, IUndoRedo {
 
     @Override
     public void undo() {
-        for (Shape shape : shapeList.getSelectShapeList()) {
+        for (IShape shape : shapeList.getSelectShapeList()) {
             shapeList.addDrawShape(shape);
         }
         ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);
@@ -38,7 +39,7 @@ public class CommandDeleteShape implements ICommand, IUndoRedo {
     }
 
     private void Delete(){
-        for (Shape shape : shapeList.getSelectShapeList()) {
+        for (IShape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
         }
         ClearCanvasIterateShape.clearAndDraw(paintCanvas, shapeList);

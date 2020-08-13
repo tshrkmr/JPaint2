@@ -1,6 +1,7 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IShape;
 import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
@@ -26,7 +27,7 @@ public class CommandPasteShape implements ICommand, IUndoRedo {
     @Override
     public void undo() {
         System.out.println("Undo Paste");
-        for(Shape shape: shapeList.getPasteShapeList()){
+        for(IShape shape: shapeList.getPasteShapeList()){
             System.out.println("# of Shapes in paste list " + shapeList.getPasteShapeList().size());
             //shapeList.removePasteShape(shape);
             shapeList.removeDrawShape(shape);
@@ -43,8 +44,9 @@ public class CommandPasteShape implements ICommand, IUndoRedo {
 
     private void Paste(){
         int offset = 100;
-        for (Shape shape : shapeList.getCopyShapeList()) {
-            Shape pasteShape = new Shape(shape.getStartPoint(), shape.getEndPoint(), shape.appState);
+        for (IShape shape : shapeList.getCopyShapeList()) {
+            Shape pasteShape = new Shape(shape.getStartPoint(), shape.getEndPoint(), shape.getAppState(), paintCanvas);
+            //System.out.println(pasteShape.getShadeType());
             pasteShape.setShapeType(shape.getShapeType());
             pasteShape.setShadeType(shape.getShadeType());
             pasteShape.setPrimaryColor(shape.getPrimaryColor());

@@ -3,6 +3,7 @@ package controller;
 import model.StartAndEndPointMode;
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
+import model.interfaces.IShape;
 import model.persistence.*;
 import view.interfaces.PaintCanvasBase;
 import java.awt.event.MouseAdapter;
@@ -32,17 +33,21 @@ public class MyMouseListener extends MouseAdapter {
 
         Point endPoint = new Point(e.getX(), e.getY());
 
+        IShape shape = new Shape(startPoint, endPoint, appState, paintCanvas);
+        shape.setProperties();
+
         StartAndEndPointMode startAndEndPointMode = appState.getActiveStartAndEndPointMode();
 
         switch (startAndEndPointMode.toString()) {
             case "DRAW":
-                command = new CommandCreateShape(startPoint, endPoint, paintCanvas, shapeList, appState);
+                command = new CommandCreateShape(shape, paintCanvas, shapeList);
                 break;
             case "SELECT":
-                command = new CommandSelectShape(startPoint, endPoint, shapeList, appState, paintCanvas);
+                //command = new OutlineSelectedShape(new CommandSelectShape(shape, shapeList, appState, paintCanvas), shape);
+                command = new CommandSelectShape(shape, shapeList, appState, paintCanvas);
                 break;
             case "MOVE":
-                command = new CommandMoveShape(startPoint, endPoint, shapeList, paintCanvas);
+                command = new CommandMoveShape(shape, shapeList, paintCanvas);
                 break;
         }
         command.run();

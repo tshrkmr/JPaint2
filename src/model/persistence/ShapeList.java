@@ -1,13 +1,15 @@
 package model.persistence;
 
+import model.interfaces.IShape;
+
 import java.util.ArrayList;
 
 public class ShapeList {
-    final ArrayList<Shape> drawShapeList;
-    final ArrayList<Shape> selectShapeList;
-    final ArrayList<Shape> copyShapeList;
-    final ArrayList<Shape> pasteShapeList;
-    final ArrayList<Shape> deleteShapeList;
+    final ArrayList<IShape> drawShapeList;
+    final ArrayList<IShape> selectShapeList;
+    final ArrayList<IShape> copyShapeList;
+    final ArrayList<IShape> pasteShapeList;
+    final ArrayList<IShape> deleteShapeList;
 
     public ShapeList(){
        drawShapeList = new ArrayList<>();
@@ -17,47 +19,52 @@ public class ShapeList {
        pasteShapeList = new ArrayList<>();
     }
 
-    public void addDrawShape(Shape drawShape){
+    public void addDrawShape(IShape drawShape){
         drawShapeList.add(drawShape);
     }
 
-    public void addSelectShape(Shape selectShape){
-        selectShapeList.add(selectShape);
+    public void addSelectShape(IShape selShape){
+        selectShapeList.add(selShape);
+        Shape nShape = new Shape (selShape.getStartPoint(), selShape.getEndPoint(), selShape.getAppState(), selShape.getPaintCanvas());
+        nShape.setProperties();
+        nShape.setShapeType(selShape.getShapeType());
+        IShape dashShape = new DecoratorOutlineSelectedShape(nShape);
+        dashShape.setProperties();
     }
 
-    public void addCopyShape(Shape copyShape){
+    public void addCopyShape(IShape copyShape){
         copyShapeList.add(copyShape);
     }
 
-    public void addPasteShape(Shape pasteShape){
+    public void addPasteShape(IShape pasteShape){
         pasteShapeList.add(pasteShape);
     }
 
-    public void addDeleteShape(Shape deleteShape){
+    public void addDeleteShape(IShape deleteShape){
         deleteShapeList.add(deleteShape);
     }
 
-    public void removeDrawShape(Shape rDrawShape) { drawShapeList.remove(rDrawShape); }
+    public void removeDrawShape(IShape rDrawShape) { drawShapeList.remove(rDrawShape); }
 
-    public void removePasteShape(Shape rPasteShape) { pasteShapeList.remove(rPasteShape); }
+    public void removePasteShape(IShape rPasteShape) { pasteShapeList.remove(rPasteShape); }
 
-    public ArrayList<Shape> getDrawShapeList(){
+    public ArrayList<IShape> getDrawShapeList(){
         return drawShapeList;
     }
 
-    public ArrayList<Shape> getSelectShapeList(){
+    public ArrayList<IShape> getSelectShapeList(){
         return selectShapeList;
     }
 
-    public ArrayList<Shape> getCopyShapeList(){
+    public ArrayList<IShape> getCopyShapeList(){
         return copyShapeList;
     }
 
-    public ArrayList<Shape> getPasteShapeList(){
+    public ArrayList<IShape> getPasteShapeList(){
         return pasteShapeList;
     }
 
-    public ArrayList<Shape> getDeleteShapeList(){
+    public ArrayList<IShape> getDeleteShapeList(){
         return deleteShapeList;
     }
 }

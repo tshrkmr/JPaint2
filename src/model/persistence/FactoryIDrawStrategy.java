@@ -1,19 +1,20 @@
 package model.persistence;
 
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
 public class FactoryIDrawStrategy {
 
-    public static IDrawStrategy drawStrategyEllipse(PaintCanvasBase paintCanvas, Shape sp){
+    public static IDrawStrategy drawStrategyEllipse(PaintCanvasBase paintCanvas, IShape sp){
         return new StrategyCreateEllipse(paintCanvas, sp);
     }
 
-    public static IDrawStrategy drawStrategyTriangle(PaintCanvasBase paintCanvas, Shape sp){
+    public static IDrawStrategy drawStrategyTriangle(PaintCanvasBase paintCanvas, IShape sp){
         return new StrategyCreateTriangle(paintCanvas, sp);
     }
 
-    public static IDrawStrategy drawStrategyRectangle(PaintCanvasBase paintCanvas, Shape sp){
+    public static IDrawStrategy drawStrategyRectangle(PaintCanvasBase paintCanvas, IShape sp){
         return new StrategyCreateRectangle(paintCanvas, sp);
     }
 

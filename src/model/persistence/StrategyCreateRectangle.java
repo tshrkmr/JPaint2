@@ -3,6 +3,7 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.interfaces.IDrawStrategy;
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -10,9 +11,9 @@ import java.awt.*;
 public class StrategyCreateRectangle implements IDrawStrategy {
 
     private final PaintCanvasBase paintCanvas;
-    private final Shape shape;
+    private final IShape shape;
 
-    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, Shape shape){
+    public StrategyCreateRectangle(PaintCanvasBase paintCanvas, IShape shape){
         this.paintCanvas = paintCanvas;
         this.shape = shape;
     }

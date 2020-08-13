@@ -5,22 +5,26 @@ import model.ShapeShadingType;
 import model.ShapeType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IShape;
+import view.interfaces.PaintCanvasBase;
+
 import java.awt.*;
 
 public class Shape implements IShape {
 
     private int startX, startY, width, height;
-    private ShapeType shapeType;
+    private ShapeType shapeType, shapeType1;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
     public IApplicationState appState;
     private Stroke stroke;
     private final Point startPoint, endPoint;
+    private final PaintCanvasBase paintCanvas;
 
-    public Shape(Point startPoint, Point endPoint, IApplicationState appState){
+    public Shape(Point startPoint, Point endPoint, IApplicationState appState, PaintCanvasBase paintCanvas){
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.appState = appState;
+        this.paintCanvas = paintCanvas;
     }
 
     public void setProperties() {
@@ -32,7 +36,7 @@ public class Shape implements IShape {
         stroke = new BasicStroke(4);
         setStroke(stroke);
         //stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
-        stroke = new BasicStroke(4);
+        //stroke = new BasicStroke(4);
 
         startX = Math.min(startPoint.getX(), endPoint.getX());
         startY = Math.min(startPoint.getY(), endPoint.getY());
@@ -79,6 +83,8 @@ public class Shape implements IShape {
 
     public void setStroke(Stroke stroke) {this.stroke = stroke;}
 
+    //public void setShapetype(ShapeType shapetype){this.shapeType = shapetype;}
+
     public int getStartX(){
         return startX;
     }
@@ -118,4 +124,8 @@ public class Shape implements IShape {
     public Point getStartPoint(){return startPoint;}
 
     public Point getEndPoint(){return endPoint;}
+
+    public IApplicationState getAppState(){return appState;}
+
+    public PaintCanvasBase getPaintCanvas(){return paintCanvas;}
 }

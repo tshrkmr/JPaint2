@@ -1,6 +1,7 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IShape;
 
 public class CommandCopyShape implements ICommand {
 
@@ -14,7 +15,7 @@ public class CommandCopyShape implements ICommand {
         System.out.println("Copy Command");
         shapeList.copyShapeList.clear();
 
-        for(Shape shape: shapeList.getSelectShapeList()){
+        for(IShape shape: shapeList.getSelectShapeList()){
             shapeList.addCopyShape(shape);
         }
         System.out.println("# of shapes Copied " + shapeList.getCopyShapeList().size());

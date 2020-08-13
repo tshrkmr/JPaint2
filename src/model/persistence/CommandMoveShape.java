@@ -1,19 +1,19 @@
 package model.persistence;
 
 import model.interfaces.ICommand;
+import model.interfaces.IShape;
 import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
 public class CommandMoveShape implements ICommand, IUndoRedo {
 
-    private final Point startPoint, endPoint;
     private final ShapeList shapeList;
     private final PaintCanvasBase paintCanvas;
     private int dx, dy;
+    private final IShape shape;
 
-    public CommandMoveShape(Point startPoint, Point endPoint, ShapeList shapeList, PaintCanvasBase paintCanvas){
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    public CommandMoveShape(IShape shape, ShapeList shapeList, PaintCanvasBase paintCanvas){
+        this.shape = shape;
         this.shapeList = shapeList;
         this.paintCanvas = paintCanvas;
     }
@@ -23,8 +23,8 @@ public class CommandMoveShape implements ICommand, IUndoRedo {
 
         System.out.println("Move Command");
 
-        dx = endPoint.getX() - startPoint.getX();
-        dy = endPoint.getY() - startPoint.getY();
+        dx = shape.getEndPoint().getX() - shape.getStartPoint().getX();
+        dy = shape.getEndPoint().getY() - shape.getStartPoint().getY();
 
         Move();
 
@@ -34,7 +34,7 @@ public class CommandMoveShape implements ICommand, IUndoRedo {
 
     @Override
     public void undo() {
-        for (Shape shape : shapeList.getSelectShapeList()) {
+        for (IShape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
             shape.setStartX(shape.getStartX() - dx);
             shape.setStartY(shape.getStartY() - dy);
@@ -49,7 +49,7 @@ public class CommandMoveShape implements ICommand, IUndoRedo {
     }
 
     private void Move() {
-        for (Shape shape : shapeList.getSelectShapeList()) {
+        for (IShape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
             shape.setStartX(shape.getStartX() + dx);
             shape.setStartY(shape.getStartY() + dy);
