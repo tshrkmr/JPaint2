@@ -12,7 +12,7 @@ import java.awt.*;
 public class Shape implements IShape {
 
     private int startX, startY, width, height;
-    private ShapeType shapeType, shapeType1;
+    private ShapeType shapeType;
     private ShapeShadingType shadeType;
     private ShapeColor primaryColor, secondaryColor;
     public IApplicationState appState;
@@ -33,20 +33,19 @@ public class Shape implements IShape {
         setShadeType(appState.getActiveShapeShadingType());
         setPrimaryColor(appState.getActivePrimaryColor());
         setSecondaryColor(appState.getActiveSecondaryColor());
-        stroke = new BasicStroke(4);
-        setStroke(stroke);
-        //stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
-        //stroke = new BasicStroke(4);
+
 
         startX = Math.min(startPoint.getX(), endPoint.getX());
         startY = Math.min(startPoint.getY(), endPoint.getY());
         width = Math.abs(startPoint.getX() - endPoint.getX());
         height = Math.abs(startPoint.getY() - endPoint.getY());
+        stroke = new BasicStroke(4);
 
         setStartX(startX);
         setStartY(startY);
         setWidth(width);
         setHeight(height);
+        setStroke(stroke);
     }
 
     public void setStartX(int x){

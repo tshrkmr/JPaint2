@@ -1,6 +1,8 @@
 package model.persistence;
 
-import model.interfaces.*;
+import model.interfaces.ICommand;
+import model.interfaces.IShape;
+import model.interfaces.IUndoRedo;
 import view.interfaces.PaintCanvasBase;
 
 public class CommandCreateShape implements ICommand, IUndoRedo {

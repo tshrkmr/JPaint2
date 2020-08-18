@@ -14,16 +14,16 @@ public class FactorySelectShape {
         ShapeType shapeType = shape.getShapeType();
         switch (shapeType.toString()) {
             case "ELLIPSE":
-                drawStrategy = FactoryIDrawStrategy.drawStrategyEllipse(paintCanvas, shape);
+                drawStrategy = FactoryStaticIDrawStrategy.drawStrategyEllipse(paintCanvas, shape);
                 break;
             case "RECTANGLE":
-                drawStrategy = FactoryIDrawStrategy.drawStrategyRectangle(paintCanvas, shape);
+                drawStrategy = FactoryStaticIDrawStrategy.drawStrategyRectangle(paintCanvas, shape);
                 break;
             case "TRIANGLE":
-                drawStrategy = FactoryIDrawStrategy.drawStrategyTriangle(paintCanvas, shape);
+                drawStrategy = FactoryStaticIDrawStrategy.drawStrategyTriangle(paintCanvas, shape);
                 break;
             default:
-                drawStrategy = FactoryIDrawStrategy.drawStrategyNull();
+                drawStrategy = FactoryStaticIDrawStrategy.drawStrategyNull();
         }
         drawStrategy.draw(shape.getStartX(), shape.getStartY(), shape.getWidth(), shape.getHeight(), shape.getStroke());
     }

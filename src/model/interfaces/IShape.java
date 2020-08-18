@@ -27,7 +27,7 @@ public interface IShape {
     ShapeColor getSecondaryColor();
     ShapeColor getPrimaryColor();
     Stroke getStroke();
-    Point getStartPoint();
+    model.persistence.Point getStartPoint();
     Point getEndPoint();
     IApplicationState getAppState();
     PaintCanvasBase getPaintCanvas();

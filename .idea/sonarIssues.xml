@@ -43,6 +43,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/model/MyMouseListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/interfaces/ICommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/interfaces/IDialogProvider.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/interfaces/IDrawStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/model/interfaces/IShape.java">
           <value>
             <set />
@@ -54,6 +74,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/interfaces/IUndoable.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/ApplicationState.java">
           <value>
             <set />
           </value>
@@ -79,6 +104,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/CommandDeleteShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/CommandGroup.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/CommandGroupShape.java">
           <value>
             <set />
           </value>
@@ -109,6 +144,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/CommandSelectShapeProxy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/CommandUnGroup.java">
           <value>
             <set />
           </value>
@@ -144,6 +184,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/FactorySelectShape.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/FactoryStaticIDrawStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/IUndoRedo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/NullDropDownSelect.java">
           <value>
             <set />
           </value>
@@ -194,6 +249,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/StrategyCreateTriangle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/TestGroup.java">
           <value>
             <set />
           </value>

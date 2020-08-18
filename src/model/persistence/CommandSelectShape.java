@@ -1,16 +1,17 @@
 package model.persistence;
 
-import model.interfaces.*;
+import model.interfaces.IApplicationState;
+import model.interfaces.ICommand;
+import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
-import java.awt.*;
+
 
 public class CommandSelectShape implements ICommand {
 
     private final ShapeList shapeList;
     private final IApplicationState appState;
     private final PaintCanvasBase paintCanvas;
-    private Stroke stroke1, stroke2;
     private final IShape shape;
 
     public CommandSelectShape(IShape shape, ShapeList shapeList, IApplicationState appState, PaintCanvasBase paintCanvas) {
@@ -29,14 +30,25 @@ public class CommandSelectShape implements ICommand {
         selectShape.setProperties();
 
         for (IShape shape : shapeList.getDrawShapeList()) {
-            stroke1 = new BasicStroke(0);
             if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
+                    && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()
+                    && selectShape.getStartY() < shape.getStartY() + shape.getHeight()
+                    && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()
+                    && shapeList.getGroupShapeList().contains(shape)){
+                shapeList.removeGroupShape(shape);
+                shapeList.addSelectShape(shape);
+            }
+            else if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
                     && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()
                     && selectShape.getStartY() < shape.getStartY() + shape.getHeight()
                     && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()) {
 
                 shapeList.addSelectShape(shape);
-            } else {
+                for(IShape s1 : shapeList.getGroupShapeList()){
+                    shapeList.addSelectShape(s1);
+                }
+            }
+            else {
                 System.out.println("Nothing Selected!!");
             }
         }

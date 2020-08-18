@@ -1,6 +1,7 @@
 package model.persistence;
 
 import model.interfaces.IDrawStrategy;
+
 import java.awt.*;
 
 public class NullDropDownSelect implements IDrawStrategy {

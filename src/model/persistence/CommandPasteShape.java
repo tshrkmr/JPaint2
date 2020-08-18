@@ -21,15 +21,13 @@ public class CommandPasteShape implements ICommand, IUndoRedo {
         shapeList.pasteShapeList.clear();
         Paste();
         CommandHistory.add(this);
-        System.out.println("# of Shapes Pasted " + shapeList.getPasteShapeList().size());
+        System.out.println("# of Shapes Pasted " + shapeList.getCopyShapeList().size());
     }
 
     @Override
     public void undo() {
         System.out.println("Undo Paste");
         for(IShape shape: shapeList.getPasteShapeList()){
-            System.out.println("# of Shapes in paste list " + shapeList.getPasteShapeList().size());
-            //shapeList.removePasteShape(shape);
             shapeList.removeDrawShape(shape);
             System.out.println("Reached here");
         }
@@ -44,9 +42,10 @@ public class CommandPasteShape implements ICommand, IUndoRedo {
 
     private void Paste(){
         int offset = 100;
+        shapeList.pasteShapeList.clear();
         for (IShape shape : shapeList.getCopyShapeList()) {
             Shape pasteShape = new Shape(shape.getStartPoint(), shape.getEndPoint(), shape.getAppState(), paintCanvas);
-            //System.out.println(pasteShape.getShadeType());
+            pasteShape.setProperties();
             pasteShape.setShapeType(shape.getShapeType());
             pasteShape.setShadeType(shape.getShadeType());
             pasteShape.setPrimaryColor(shape.getPrimaryColor());

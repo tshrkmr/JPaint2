@@ -4,7 +4,7 @@ import model.interfaces.IDrawStrategy;
 import model.interfaces.IShape;
 import view.interfaces.PaintCanvasBase;
 
-public class FactoryIDrawStrategy {
+public class FactoryStaticIDrawStrategy {
 
     public static IDrawStrategy drawStrategyEllipse(PaintCanvasBase paintCanvas, IShape sp){
         return new StrategyCreateEllipse(paintCanvas, sp);

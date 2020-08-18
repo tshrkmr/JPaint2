@@ -13,22 +13,16 @@ public class DecoratorOutlineSelectedShape implements IShape {
 
     private final IShape shape;
     private final PaintCanvasBase paintCanvas;
-    private ShapeColor primaryColor;
-    private ShapeShadingType shapeShadingType;
     private final int startX, startY, width, height;
-    private Stroke stroke;
     private final ShapeType shapeType;
 
     public DecoratorOutlineSelectedShape(IShape shape){
         this.shape = shape;
         this.paintCanvas = shape.getPaintCanvas();
-        this.primaryColor = shape.getPrimaryColor();
-        this.shapeShadingType = shape.getShadeType();
         this.startX = shape.getStartX();
         this.startY = shape.getStartY();
         this.width = shape.getWidth();
         this.height = shape.getHeight();
-        this.stroke = shape.getStroke();
         this.shapeType = shape.getShapeType();
     }
 
@@ -44,10 +38,9 @@ public class DecoratorOutlineSelectedShape implements IShape {
         int y = startY-5;
         int w = width+10;
         int h = height+10;
-
-        primaryColor = ShapeColor.BLACK;
-        stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
-        shapeShadingType = ShapeShadingType.OUTLINE;
+        ShapeColor primaryColor = ShapeColor.BLACK;
+        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+        ShapeShadingType shapeShadingType = ShapeShadingType.OUTLINE;
 
         shape.setStartX(x);
         shape.setStartY(y);
