@@ -25,6 +25,10 @@ public class CommandGroupShape implements ICommand, IUndoRedo {
 
     @Override
     public void undo() {
+        for(IShape shape: undoGroup){
+            shapeList.removeGroupShape(shape);
+            undoGroup.remove(shape);
+        }
     }
 
     @Override
@@ -35,6 +39,7 @@ public class CommandGroupShape implements ICommand, IUndoRedo {
     private void groupShape(){
         for(IShape shape: shapeList.getSelectShapeList()){
             shapeList.addGroupShape(shape);
+            undoGroup.add(shape);
         }
         System.out.println("# of shapes Grouped " + shapeList.getGroupShapeList().size());
     }
