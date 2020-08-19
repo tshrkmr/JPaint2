@@ -54,13 +54,7 @@ public class ShapeList {
         pasteShapeList.add(groupShape);
     }
 
-    public void addDeleteShape(IShape deleteShape){
-        deleteShapeList.add(deleteShape);
-    }
-
     public void removeDrawShape(IShape rDrawShape) { drawShapeList.remove(rDrawShape); }
-
-    public void removePasteShape(IShape rPasteShape) { pasteShapeList.remove(rPasteShape); }
 
     public void removeGroupShape(IShape rGroupShape) { groupShapeList.remove(rGroupShape); }
 

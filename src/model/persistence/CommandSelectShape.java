@@ -34,29 +34,26 @@ public class CommandSelectShape implements ICommand {
                     && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()
                     && selectShape.getStartY() < shape.getStartY() + shape.getHeight()
                     && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()
-                    && shapeList.getGroupShapeList().contains(shape)){
+                    && shapeList.getGroupShapeList().contains(shape)) {
                 shapeList.removeGroupShape(shape);
-                 shapeList.addSelectShape(shape);
+                shapeList.addSelectShape(shape);
 //                shapeList.getSelectShapeList().clear();
 //                for(IShape s: shapeList.getGroupShapeList()){
 //                    shapeList.addSelectShape(s);
 //                }
-
-            }
-            else if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
+            } else if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
                     && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()
                     && selectShape.getStartY() < shape.getStartY() + shape.getHeight()
                     && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()) {
 
                 shapeList.addSelectShape(shape);
-                for(IShape s1 : shapeList.getGroupShapeList()){
+                for (IShape s1 : shapeList.getGroupShapeList()) {
                     shapeList.addSelectShape(s1);
                 }
+            } else {
+
             }
-            else {
-                System.out.println("Nothing Selected!!");
-            }
+            System.out.println("# of shapes Selected " + shapeList.getSelectShapeList().size());
         }
-        System.out.println("# of shapes Selected " + shapeList.getSelectShapeList().size());
     }
 }
