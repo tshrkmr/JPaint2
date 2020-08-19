@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/JPaint-master 2/src/model/ColorSingleton.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/JPaint-master 3/src/controller/commands/PasteCommand.java">
           <value>
             <set />
@@ -33,6 +38,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/JPaintFinalProjectSE450-master/src/model/ColorMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/controller/JPaintController.java">
           <value>
             <set />
@@ -44,6 +54,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/MyMouseListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/ShapeColor.java">
           <value>
             <set />
           </value>
@@ -234,6 +249,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/model/persistence/ShapeList.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/model/persistence/SingletonColor.java">
           <value>
             <set />
           </value>

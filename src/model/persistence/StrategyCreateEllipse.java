@@ -31,18 +31,18 @@ public class StrategyCreateEllipse implements IDrawStrategy {
 
         switch (shadeType.toString()) {
             case "FILLED_IN":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.fillOval(x, y, width, height);
                 break;
             case "OUTLINE":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.setStroke(stroke);
                 graphics2d.drawOval(x, y, width, height);
                 break;
             case "OUTLINE_AND_FILLED_IN":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.fillOval(x, y, width, height);
-                graphics2d.setColor(secondaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(secondaryColor));
                 graphics2d.setStroke(stroke);
                 graphics2d.drawOval(x, y, width, height);
                 break;

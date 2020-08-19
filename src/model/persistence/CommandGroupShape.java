@@ -4,31 +4,38 @@ import model.interfaces.ICommand;
 import model.interfaces.IShape;
 import model.interfaces.IUndoRedo;
 
+import java.util.ArrayList;
+
 public class CommandGroupShape implements ICommand, IUndoRedo {
 
     private final ShapeList shapeList;
+    ArrayList<IShape> undoGroup;
 
     public CommandGroupShape(ShapeList shapeList){
         this.shapeList = shapeList;
+        undoGroup = new ArrayList<>();
     }
     @Override
     public void run() {
         System.out.println("Group Command");
         shapeList.groupShapeList.clear();
-
-        for(IShape shape: shapeList.getSelectShapeList()){
-            shapeList.addGroupShape(shape);
-        }
-        System.out.println("# of shapes Grouped " + shapeList.getGroupShapeList().size());
+        groupShape();
+        CommandHistory.add(this);
     }
 
     @Override
     public void undo() {
-
     }
 
     @Override
     public void redo() {
+        groupShape();
+    }
 
+    private void groupShape(){
+        for(IShape shape: shapeList.getSelectShapeList()){
+            shapeList.addGroupShape(shape);
+        }
+        System.out.println("# of shapes Grouped " + shapeList.getGroupShapeList().size());
     }
 }

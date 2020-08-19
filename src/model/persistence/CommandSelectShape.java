@@ -36,7 +36,12 @@ public class CommandSelectShape implements ICommand {
                     && selectShape.getStartY() + selectShape.getHeight() > shape.getStartY()
                     && shapeList.getGroupShapeList().contains(shape)){
                 shapeList.removeGroupShape(shape);
-                shapeList.addSelectShape(shape);
+                 shapeList.addSelectShape(shape);
+//                shapeList.getSelectShapeList().clear();
+//                for(IShape s: shapeList.getGroupShapeList()){
+//                    shapeList.addSelectShape(s);
+//                }
+
             }
             else if (selectShape.getStartX() < shape.getStartX() + shape.getWidth()
                     && selectShape.getStartX() + selectShape.getWidth() > shape.getStartX()

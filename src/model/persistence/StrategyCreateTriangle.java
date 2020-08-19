@@ -34,18 +34,18 @@ public class StrategyCreateTriangle implements IDrawStrategy {
 
         switch (shadeType.toString()) {
             case "FILLED_IN":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.fillPolygon(X, Y, 3);
                 break;
             case "OUTLINE":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.setStroke(stroke);
                 graphics2d.drawPolygon(X, Y, 3);
                 break;
             case "OUTLINE_AND_FILLED_IN":
-                graphics2d.setColor(primaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(primaryColor));
                 graphics2d.fillPolygon(X, Y, 3);
-                graphics2d.setColor(secondaryColor.getColor());
+                graphics2d.setColor(SingletonColor.getInstance().getColor(secondaryColor));
                 graphics2d.setStroke(stroke);
                 graphics2d.drawPolygon(X, Y, 3);
                 break;

@@ -26,7 +26,7 @@ public class CommandMoveShape implements ICommand, IUndoRedo {
         dx = shape.getEndPoint().getX() - shape.getStartPoint().getX();
         dy = shape.getEndPoint().getY() - shape.getStartPoint().getY();
 
-        Move();
+        moveShape();
 
         CommandHistory.add(this);
         System.out.println("# of Shapes Moved " + shapeList.getDrawShapeList().size());
@@ -45,10 +45,10 @@ public class CommandMoveShape implements ICommand, IUndoRedo {
 
     @Override
     public void redo() {
-        Move();
+        moveShape();
     }
 
-    private void Move() {
+    private void moveShape() {
         for (IShape shape : shapeList.getSelectShapeList()) {
             shapeList.removeDrawShape(shape);
             shape.setStartX(shape.getStartX() + dx);
