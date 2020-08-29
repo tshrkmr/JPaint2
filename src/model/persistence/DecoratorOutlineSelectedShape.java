@@ -45,6 +45,7 @@ public class DecoratorOutlineSelectedShape implements IShape {
         shape.setStartX(x);
         shape.setStartY(y);
         shape.setWidth(w);
+
         shape.setHeight(h);
         shape.setPrimaryColor(primaryColor);
         shape.setStroke(stroke);
